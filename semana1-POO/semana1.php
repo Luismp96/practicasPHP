@@ -1,6 +1,9 @@
 <?php
 
-    class Persona{
+    interface ObtenerDatos{
+        public function obtenerDatos();
+    }
+    abstract class Persona{
 
         //ATRIBUTOS CLASE PERSONA
         private $nombre;
@@ -85,6 +88,10 @@
             $this->nivel = $nivel;
         }
 
+        public function obtenerDatos(){
+            return [$this->obtenerNombre(),$this->obtenerEdad(), $this->obtenerLocalidad(), $this->numeroColegiado,$this->temporadasArbitradas,$this->nivel];
+        }
+
     }
 
     class Jugador extends Persona{
@@ -127,6 +134,11 @@
         public function darNombreEquipo($nombre){
             $this->nombreEquipo = $nombre;
         }
+
+        public function obtenerDatos(){
+            return [$this->obtenerNombre(),$this->obtenerEdad(), $this->obtenerLocalidad(), $this->dorsal,$this->posicion,$this->nombreEquipo];
+        }
+
     }
 
 
