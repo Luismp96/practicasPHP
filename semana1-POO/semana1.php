@@ -45,7 +45,7 @@
 
     }
 
-    class Arbitro extends Persona{
+    class Arbitro extends Persona implements ObtenerDatos{
         //ATRIBUTOS CLASE ARBITRO
         private $numeroColegiado;
         private $temporadasArbitradas;
@@ -88,13 +88,14 @@
             $this->nivel = $nivel;
         }
 
+        //METODO OBLIGATORIO MARCADO POR INTERFACE
         public function obtenerDatos(){
             return [$this->obtenerNombre(),$this->obtenerEdad(), $this->obtenerLocalidad(), $this->numeroColegiado,$this->temporadasArbitradas,$this->nivel];
         }
 
     }
 
-    class Jugador extends Persona{
+    class Jugador extends Persona implements ObtenerDatos{
         //ATRIBUTOS CLASE JUGADOR
         private $dorsal;
         private $posicion;
@@ -135,14 +136,12 @@
             $this->nombreEquipo = $nombre;
         }
 
+        //METODO OBLIGATORIO MARCADO POR INTERFACE
         public function obtenerDatos(){
             return [$this->obtenerNombre(),$this->obtenerEdad(), $this->obtenerLocalidad(), $this->dorsal,$this->posicion,$this->nombreEquipo];
         }
 
     }
-
-
-
 
 
 ?>
