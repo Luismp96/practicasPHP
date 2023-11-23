@@ -98,16 +98,16 @@
         //ATRIBUTOS CLASE JUGADOR
         private $dorsal;
         private $posicion;
-        private $nombreEquipo;
+        private $equipos = [];
 
         //CONSTRUCTOR CLASE JUGADOR
-        public function __construct($nombre, $edad, $localidad, $dorsal,$posicion,$nombreEquipo){
+        public function __construct($nombre, $edad, $localidad, $dorsal,$posicion,$equipos){
             $this->darNombre($nombre);
             $this->darEdad($edad);
             $this->darLocalidad($localidad);
             $this->dorsal = $dorsal;
             $this->posicion = $posicion;
-            $this->nombreEquipo = $nombreEquipo;
+            $this->equipos = $equipos;
         }
 
         //GETTERS Y SETTERS
@@ -127,22 +127,38 @@
             $this->posicion = $posicion;
         }
 
-        public function obtenerNombreEquipo(){
-            return $this->nombreEquipo;
+        public function obtenerEquipos(){
+
+            return $this->equipos;
         }    
 
-        public function darNombreEquipo($nombre){
-            $this->nombreEquipo = $nombre;
+        public function añadirEquipos($equipos){
+            
+            foreach($equipos as $equipo) {
+                array_push($this->equipos,$equipo);
+            }
         }
+
+        public function comprobarSiPosicion($posicion){
+
+            $salida = false;
+
+            if($this->posicion === $posicion){
+                $salida = true;
+            }
+
+            return $salida;
+        }
+        
 
         //METODO OBLIGATORIO MARCADO POR INTERFACE
         public function obtenerDatos(){
-            return [$this->obtenerNombre(),$this->obtenerEdad(), $this->obtenerLocalidad(), $this->dorsal,$this->posicion,$this->nombreEquipo];
+            return [$this->obtenerNombre(),$this->obtenerEdad(), $this->obtenerLocalidad(), $this->dorsal,$this->posicion,$this->equipos];
         }
 
     }
 
-    $jugador1 = new Jugador("Luis Martin",27,"Mostoles",12,"Base","Mostoles CB");
+    $jugador1 = new Jugador("Luis Martin",27,"Mostoles",12,"Base",["Alcala"]);
     $arbitro1 = new Arbitro("Jorge Perez",30,"Parla",1234,3,1);
 
     //MODIFICAMOS DORSAL JUGADOR 1, LO MOSTRAMOS Y DEVOLVEMOS ARRAY DE NUEVO
@@ -159,7 +175,19 @@
     echo"<p>El NUEVO array del Jugador 1 es: </p>";
     echo(var_dump($jugador1->obtenerDatos()) . "<br>");
 
+    $jugador1->añadirEquipos(["Estudiantes","Canoe"]);
 
+    echo("<br>");
+    echo("Los equipos donde ha jugado el Jugador " . $jugador1->obtenerNombre() . " son: " . implode(", ",$jugador1->obtenerEquipos()));
+
+    echo("<br>");
+    $posicionAComprobar = "Escolta";
+
+    if($jugador1->comprobarSiPosicion($posicionAComprobar)){
+        echo "Has acertado la posicion del Jugador! ";
+    }else{
+        echo "No has acertado. Juega en la posicion de : " . $jugador1->obtenerPosicion();
+    }
     //MODIFICAMOS NIVEL ARBITRO 1, LO MOSTRAMOS Y DEVOLVEMOS ARRAY DE NUEVO
     echo "<h3>ARBITRO</h3><br>";
     echo"<p>El array del Arbitro 1 es: </p>";
