@@ -42,7 +42,6 @@
             $this->localidad = $localidad;
         }
 
-
     }
 
     class Arbitro extends Persona implements ObtenerDatos{
@@ -143,5 +142,33 @@
 
     }
 
+    $jugador1 = new Jugador("Luis Martin",27,"Mostoles",12,"Base","Mostoles CB");
+    $arbitro1 = new Arbitro("Jorge Perez",30,"Parla",1234,3,1);
 
+    //MODIFICAMOS DORSAL JUGADOR 1, LO MOSTRAMOS Y DEVOLVEMOS ARRAY DE NUEVO
+    echo "<h2>JUGADOR</h2><br>";
+
+    echo"<p>El array del Jugador 1 es: </p>";
+    echo(var_dump($jugador1->obtenerDatos()) . "<br>");
+
+    echo("<br>");
+    
+    $jugador1->darDorsal(20);
+    echo "El nuevo dorsal del Jugador 1 es: " . $jugador1->obtenerDorsal() . "<br>";
+
+    echo"<p>El NUEVO array del Jugador 1 es: </p>";
+    echo(var_dump($jugador1->obtenerDatos()) . "<br>");
+
+
+    //MODIFICAMOS NIVEL ARBITRO 1, LO MOSTRAMOS Y DEVOLVEMOS ARRAY DE NUEVO
+    echo "<h3>ARBITRO</h3><br>";
+    echo"<p>El array del Arbitro 1 es: </p>";
+    echo(var_dump($arbitro1->obtenerDatos()) . "<br>");
+
+    echo("<br>");
+    $arbitro1->darNivel(2);
+    echo "El nuevo nivel del Arbitro 1 es: " . $arbitro1->obtenerNivel() . "<br>";
+
+    echo"<p>El NUEVO array del Arbitro 1 es: </p>";
+    echo(var_dump($arbitro1->obtenerDatos()) . "<br>");
 ?>
