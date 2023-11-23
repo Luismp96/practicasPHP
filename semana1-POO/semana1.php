@@ -92,6 +92,17 @@
             return [$this->obtenerNombre(),$this->obtenerEdad(), $this->obtenerLocalidad(), $this->numeroColegiado,$this->temporadasArbitradas,$this->nivel];
         }
 
+        public function comprobarSiVeterano(){
+
+            $salida = false;
+
+            if ($this->temporadasArbitradas>= 5) {
+                $salida = true;
+            }    
+
+            return $salida;
+        }
+
     }
 
     class Jugador extends Persona implements ObtenerDatos{
@@ -159,6 +170,7 @@
     }
 
     $jugador1 = new Jugador("Luis Martin",27,"Mostoles",12,"Base",["Alcala"]);
+    $jugador2 = new Jugador("Pepito Lopez",40,"Humanes",17,"Pivot",["Boadilla del Monte", "Pozuelo de Alarcon"]);
     $arbitro1 = new Arbitro("Jorge Perez",30,"Parla",1234,3,1);
 
     //MODIFICAMOS DORSAL JUGADOR 1, LO MOSTRAMOS Y DEVOLVEMOS ARRAY DE NUEVO
@@ -199,4 +211,22 @@
 
     echo"<p>El NUEVO array del Arbitro 1 es: </p>";
     echo(var_dump($arbitro1->obtenerDatos()) . "<br>");
+    echo("<br>");
+
+    if($arbitro1->comprobarSiVeterano()){
+        echo "El Arbitro 1 es veterano! ";
+    }else{
+        echo "El Arbitro 1 no es veterano! ";
+    
+    }
+    echo("<br><br>");
+
+    $arrayJugadores = [$jugador1,$jugador2];
+
+    foreach ($arrayJugadores as $jugador){
+        echo(var_dump($jugador->obtenerDatos()));
+        echo("<br><br>");
+    }
+    
+
 ?>
