@@ -221,6 +221,8 @@
     }
     echo("<br><br>");
 
+
+    
     $arrayJugadores = [$jugador1,$jugador2];
 
     foreach ($arrayJugadores as $jugador){
