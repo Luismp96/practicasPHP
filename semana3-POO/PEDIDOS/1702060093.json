@@ -1,0 +1,22 @@
+{
+    "productos": [
+        {
+            "precio": "30",
+            "nombre": "Zapatillas de Tenis",
+            "descripcion": "Zapatillas para jugar al tenis de forma c\u00f3moda."
+        },
+        {
+            "precio": "50",
+            "nombre": "Raqueta Tenis",
+            "descripcion": "Raqueta para jugar al tenis."
+        }
+    ],
+    "cliente": {
+        "nombre": "Luis",
+        "apellidos": "Martin Portillo",
+        "email": "96luismartin@gmail.com",
+        "telefono": "662041188",
+        "direcciones": null
+    },
+    "total": null
+}

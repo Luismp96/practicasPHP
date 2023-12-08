@@ -1,0 +1,30 @@
+[
+    {
+        "nombre":"Zapatillas de Tenis",
+        "descripcion":"Zapatillas para jugar al tenis de forma cómoda.",
+        "precio":"30",
+        "profundidad":"40",
+        "anchura":"30",
+        "altura":"20",
+        "peso":"2"
+    },
+    {
+        "nombre":"Raqueta Tenis",
+        "descripcion":"Raqueta para jugar al tenis.",
+        "precio":"50",
+        "profundidad":"30",
+        "anchura":"40",
+        "altura":"50",
+        "peso":"1"
+    },
+    {
+        "nombre":"Calcetines de Deporte",
+        "descripcion":"Calcetines para práctica deportiva.",
+        "precio":"10",
+        "profundidad":"4",
+        "anchura":"5",
+        "altura":"10",
+        "peso":"0.2"
+    }
+    
+]
