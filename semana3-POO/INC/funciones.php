@@ -41,26 +41,24 @@
 
     function mostrarCarrito(){
         echo '<aside><h4>CARRITO</h4>';
-        echo "<table>";
+        echo '<table>';
 
         foreach($_SESSION['carrito']->listarProductos() as $produ){
-            echo "<tr>";
-                echo "<td>";
-                    echo "<h5>" . $produ->dimeNombre() . "</h5>";
-                    echo "<p>" .$produ->dimeDescripcion() . "</p>";
-                echo "</td>";
-                echo "<td>";
-                    echo $produ->dimePrecio();
-                echo "</td>";
-            echo "<tr>";
+            echo '<tr>
+                <td>
+                    <h5>' . $produ->dimeNombre() . '</h5>
+                    <p>' .$produ->dimeDescripcion() . '</p>
+                </td>
+                <td>
+                    <p>' . $produ->dimePrecio().'</p>
+                </td>
+            <tr>';
         }
 
-        echo "<tr><td>Total</td><td>".$_SESSION['carrito']->calculaTotal()." €</td></tr>";
-        echo "</table>";
-        echo "<br>";
-        echo "<a href='?pagina=datosCliente'><button>Procesar Pedido</button></a>";
-        echo '<br><br><a href="?b="><button>BORRAR CARRITO</button></a>';
-        echo '</aside>';
+        echo '<tr><td>Total</td><td>'.$_SESSION['carrito']->calculaTotal().' €</td></tr>';
+        echo '</table>';
+        echo '<br><a href="?pagina=datosCliente"><button>Procesar Pedido</button></a>';
+        echo '<br><br><a href="?b="><button>BORRAR CARRITO</button></a></aside>';
     }
 
     function borrarCarrito(){

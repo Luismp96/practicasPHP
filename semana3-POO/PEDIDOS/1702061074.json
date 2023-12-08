@@ -1,0 +1,22 @@
+{
+    "productos": [
+        {
+            "precio": "30",
+            "nombre": "Zapatillas de Tenis",
+            "descripcion": "Zapatillas para jugar al tenis de forma c\u00f3moda."
+        },
+        {
+            "precio": "50",
+            "nombre": "Raqueta Tenis",
+            "descripcion": "Raqueta para jugar al tenis."
+        }
+    ],
+    "cliente": {
+        "nombre": "Alba",
+        "apellidos": "Rubio Fernandez",
+        "email": "arf@gmail.com",
+        "telefono": "622586702",
+        "direcciones": null
+    },
+    "total": null
+}
