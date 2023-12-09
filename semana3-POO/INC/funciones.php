@@ -1,5 +1,6 @@
 <?php
 
+    
     function listadoProducto(){
         $productos = file_get_contents("BD/productos.json");
         $json = json_decode($productos);
@@ -43,6 +44,9 @@
         echo '<aside><h4>CARRITO</h4>';
         echo '<table>';
 
+        if(isset($_GET['b'])){
+            $_SESSION['carrito']->borrarCarrito();
+        }
         foreach($_SESSION['carrito']->listarProductos() as $produ){
             echo '<tr>
                 <td>
@@ -57,15 +61,12 @@
 
         echo '<tr><td>Total</td><td>'.$_SESSION['carrito']->calculaTotal().' €</td></tr>';
         echo '</table>';
-        echo '<br><a href="?pagina=datosCliente"><button>Procesar Pedido</button></a>';
+        echo '<a href="?pagina=datosCliente"><button>Procesar Pedido</button></a>';
         echo '<br><br><a href="?b="><button>BORRAR CARRITO</button></a></aside>';
     }
 
     function borrarCarrito(){
-        if(isset($_GET['b'])){
-
-            $_SESSION['carrito']->borrarCarrito();
-        }
+         $_SESSION['carrito']->borrarCarrito();
     }
 
     function inicializarCarrito(){

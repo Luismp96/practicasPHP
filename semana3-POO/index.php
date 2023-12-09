@@ -12,6 +12,7 @@
 
     crearCarritoSiNoExiste();
     anadirProductoAlCarrito();
+    mostrarCarrito();
 
     if(!isset($_GET['pagina'])){
         listadoProducto();
@@ -22,9 +23,6 @@
             enviaPedido();
         }
     }
-        
-    mostrarCarrito();
-    borrarCarrito();
 
     include "PLANTILLA/piedepagina.php";
 ?>

@@ -29,6 +29,12 @@ aside{
     right: 20px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 4);
     font-size: 11px;
+    overflow-y: scroll;
+}
+
+aside h5{
+    padding: 0px;
+    margin: 0px;
 }
 form input{
     width: 100%;
